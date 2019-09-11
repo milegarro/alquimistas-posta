@@ -1,0 +1,35 @@
+import alquimista.*
+
+ test "Tiene criterio con items de combate"{
+ 	alquimista.agregarItemsDeCombate(bomba)
+		
+	assert.that(alquimista.tieneCriterio())
+	
+	}
+	
+	test "Tiene criterio sin items de combate"{
+		assert.that(alquimista.tieneCriterio())
+	}
+	
+test "Cada alquimista arranca con 0 items de combate"{
+	assert.equals(0, alquimista.cantidadItemsDeCombate())
+}
+
+test "No tiene criterio"{
+	alquimista.agregarItemsDeCombate(debilitadores)
+	assert.notThat(alquimista.tieneCriterio())
+}
+
+test "Es buen explorador con 3 items de recoleccion"{
+	alquimista.agregarItemsDeRecoleccion(red)
+	alquimista.agregarItemsDeRecoleccion(red)
+	alquimista.agregarItemsDeRecoleccion(cania)
+	assert.that(alquimista.buenExplorador())
+}
+
+test "no es buen explorador"{
+	alquimista.agregarItemsDeRecoleccion(cania)
+	assert.notThat(alquimista.buenExplorador())
+}
+
+
